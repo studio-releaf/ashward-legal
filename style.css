@@ -1,0 +1,323 @@
+/* Ashward — yasal sayfalar ortak stil dosyası.
+   Harici bağımlılık yok, tek dosya, mobil uyumlu, açık/koyu tema
+   prefers-color-scheme ile otomatik. */
+
+:root {
+  --bg: #162022;
+  --surface: #1c2a2d;
+  --surface-2: #223133;
+  --text: #eaf3f1;
+  --text-muted: #9fb3b0;
+  --accent: #3fd98a;
+  --accent-strong: #2fbf76;
+  --border: #2c3c3f;
+  --link: var(--accent);
+  --max-width: 760px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f6faf9;
+    --surface: #ffffff;
+    --surface-2: #eef4f2;
+    --text: #16211f;
+    --text-muted: #57706c;
+    --accent: #0e9d63;
+    --accent-strong: #0b7d4f;
+    --border: #dee9e5;
+    --link: var(--accent);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px 20px 64px;
+}
+
+/* Header ------------------------------------------------------------- */
+
+header.site {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0 8px;
+  flex-wrap: wrap;
+}
+
+.wordmark {
+  font-size: 22px;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.wordmark .ash {
+  color: var(--text-muted);
+}
+
+.wordmark .ward {
+  color: var(--accent);
+}
+
+nav.site {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+nav.site a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav.site a:hover,
+nav.site a.active {
+  color: var(--accent);
+}
+
+/* Language switcher ---------------------------------------------------- */
+
+.lang-switch {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  margin: 4px 0 28px;
+  color: var(--text-muted);
+}
+
+.lang-switch a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-weight: 700;
+}
+
+.lang-switch a.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #06211a;
+}
+
+/* Content --------------------------------------------------------------- */
+
+main {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px clamp(20px, 5vw, 40px);
+}
+
+main h1 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+
+main h2 {
+  font-size: 19px;
+  font-weight: 800;
+  margin: 36px 0 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+main h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+main h3 {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--accent);
+  margin: 20px 0 8px;
+}
+
+main p,
+main li {
+  font-size: 15px;
+  color: var(--text);
+}
+
+main ul,
+main ol {
+  padding-left: 22px;
+}
+
+main a {
+  color: var(--link);
+}
+
+main strong {
+  color: var(--text);
+}
+
+main hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0;
+}
+
+main code {
+  background: var(--surface-2);
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+main table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 20px;
+  font-size: 14px;
+}
+
+main th,
+main td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+main th {
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 0 0 24px;
+}
+
+/* Index page ------------------------------------------------------------ */
+
+.hero {
+  text-align: center;
+  padding: 48px 0 8px;
+}
+
+.hero .wordmark {
+  font-size: 40px;
+  display: inline-block;
+}
+
+.hero p {
+  color: var(--text-muted);
+  font-size: 16px;
+  max-width: 480px;
+  margin: 16px auto 0;
+}
+
+.link-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+@media (max-width: 480px) {
+  .link-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.link-card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px 20px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.link-card .title {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.link-card .desc {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* Support / FAQ ----------------------------------------------------------- */
+
+.faq-item {
+  margin: 0 0 22px;
+}
+
+.faq-item .q {
+  font-weight: 800;
+  font-size: 15px;
+  margin: 0 0 6px;
+}
+
+.faq-item .q .badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 2px 7px;
+  border-radius: 999px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.faq-item .q .badge.en {
+  background: var(--accent);
+  color: #06211a;
+}
+
+.faq-item .q .badge.tr {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+/* Footer ------------------------------------------------------------------ */
+
+footer.site {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+  margin-top: 40px;
+}
+
+footer.site a {
+  color: var(--text-muted);
+}
